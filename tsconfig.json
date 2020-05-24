@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "module": "esnext",
+    "target": "es2018",
+    "lib": ["es6", "esnext", "es2015", "dom"],
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "dist"]
+}

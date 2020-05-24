@@ -1,0 +1,46 @@
+leaealoverwrite: true
+schema: "schemas/schema.graphql"
+documents: ./schemas/*.graphql
+config:
+  scalars:
+    DateTime: Date
+    JSON: object
+    JSONObject: object
+generates:
+  src/generated/schema.ts:
+    hooks:
+      afterAllFileWrite:
+        - prettier --write
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+      - "typescript-operations"
+  src/sdk.ts:
+    documents: ./schemas/*.graphql
+    config:
+      documentMode: "documentNode"
+      immutableTypes: true
+      flattenGeneratedTypes: true
+      namingConvention:
+        transformUnderscore: true
+    hooks:
+      afterAllFileWrite:
+        - prettier --write
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+  lib/GrapghQL/Client/RickAndMorty.pm:
+    documents: ./schemas/*.graphql
+    config:
+      packageName: "GrapghQL::Client::RickAndMorty"
+      scalars:
+        ID: "Int|Str"
+        String: "Str"
+        Int: "Int"
+    hooks:
+      afterAllFileWrite:
+        - perltidy -pro=$HOME/.perltidyrc lib/GrapghQL/Client/RickAndMorty.pm
+        - perl -wc lib/GrapghQL/Client/RickAndMorty.pm
+    plugins:
+      - perl

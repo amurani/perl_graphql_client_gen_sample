@@ -1,0 +1,21 @@
+{
+  "name": "rick-n-morty",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^15.0.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.13.5",
+    "@graphql-codegen/typescript": "1.13.5",
+    "@graphql-codegen/typescript-graphql-request": "^1.13.5",
+    "@graphql-codegen/typescript-operations": "^1.13.5",
+    "@graphql-codegen/typescript-resolvers": "1.13.5",
+    "@graphql-codegen/perl": "1.13.5",
+    "prettier": "2.0.5"
+  },
+  "scripts": {
+    "generate": "graphql-codegen --config codegen.yml"
+  }
+}
