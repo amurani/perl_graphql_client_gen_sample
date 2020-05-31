@@ -5,14 +5,16 @@ package GrapghQL::Client::RickAndMorty;
 use Moose;
 use Moose::Util::TypeConstraints;
 
+
 enum CacheControlScope => [qw/ PUBLIC PRIVATE /];
+
+class_type 'Upload', { class => 'Object' };
 
 no Moose::Util::TypeConstraints;
 no Moose;
 
 1;
-
-
+  
 package GrapghQL::Client::RickAndMorty::Types::Roles;
 
 use Moose::Role;
@@ -44,73 +46,73 @@ has 'id' => (
     isa => 'Int|Str',
     required => 0
 );
-
+  
 has 'name' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'status' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'species' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'type' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'gender' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'origin' => (
     is => 'ro',
     isa => 'GrapghQL::Client::RickAndMorty::Types::Location',
     required => 0
 );
-
+  
 has 'location' => (
     is => 'ro',
     isa => 'GrapghQL::Client::RickAndMorty::Types::Location',
     required => 0
 );
-
+  
 has 'image' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'episode' => (
     is => 'ro',
     isa => 'ArrayRef[GrapghQL::Client::RickAndMorty::Types::Episode]',
     required => 0
 );
-
+  
 has 'created' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::Characters;
 
@@ -124,19 +126,19 @@ has 'info' => (
     isa => 'GrapghQL::Client::RickAndMorty::Types::Info',
     required => 0
 );
-
+  
 has 'results' => (
     is => 'ro',
     isa => 'ArrayRef[GrapghQL::Client::RickAndMorty::Types::Character]',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::Episode;
 
@@ -150,43 +152,43 @@ has 'id' => (
     isa => 'Int|Str',
     required => 0
 );
-
+  
 has 'name' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'air_date' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'episode' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'characters' => (
     is => 'ro',
     isa => 'ArrayRef[GrapghQL::Client::RickAndMorty::Types::Character]',
     required => 0
 );
-
+  
 has 'created' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::Episodes;
 
@@ -200,19 +202,19 @@ has 'info' => (
     isa => 'GrapghQL::Client::RickAndMorty::Types::Info',
     required => 0
 );
-
+  
 has 'results' => (
     is => 'ro',
     isa => 'ArrayRef[GrapghQL::Client::RickAndMorty::Types::Episode]',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::FilterCharacter;
 
@@ -226,37 +228,37 @@ has 'name' => (
     isa => 'Str',
     required => 0
 );
-
+  
 has 'status' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'species' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'type' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'gender' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::FilterEpisode;
 
@@ -270,19 +272,19 @@ has 'name' => (
     isa => 'Str',
     required => 0
 );
-
+  
 has 'episode' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::FilterLocation;
 
@@ -296,25 +298,25 @@ has 'name' => (
     isa => 'Str',
     required => 0
 );
-
+  
 has 'type' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'dimension' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::Info;
 
@@ -328,31 +330,31 @@ has 'count' => (
     isa => 'Int',
     required => 0
 );
-
+  
 has 'pages' => (
     is => 'ro',
     isa => 'Int',
     required => 0
 );
-
+  
 has 'next' => (
     is => 'ro',
     isa => 'Int',
     required => 0
 );
-
+  
 has 'prev' => (
     is => 'ro',
     isa => 'Int',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::Location;
 
@@ -366,43 +368,43 @@ has 'id' => (
     isa => 'Int|Str',
     required => 0
 );
-
+  
 has 'name' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'type' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'dimension' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 has 'residents' => (
     is => 'ro',
     isa => 'ArrayRef[GrapghQL::Client::RickAndMorty::Types::Character]',
     required => 0
 );
-
+  
 has 'created' => (
     is => 'ro',
     isa => 'Str',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::Locations;
 
@@ -416,19 +418,19 @@ has 'info' => (
     isa => 'GrapghQL::Client::RickAndMorty::Types::Info',
     required => 0
 );
-
+  
 has 'results' => (
     is => 'ro',
     isa => 'ArrayRef[GrapghQL::Client::RickAndMorty::Types::Location]',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Types::Query;
 
@@ -442,43 +444,43 @@ has 'character' => (
     isa => 'GrapghQL::Client::RickAndMorty::Types::Character',
     required => 0
 );
-
+  
 has 'characters' => (
     is => 'ro',
     isa => 'GrapghQL::Client::RickAndMorty::Types::Characters',
     required => 0
 );
-
+  
 has 'location' => (
     is => 'ro',
     isa => 'GrapghQL::Client::RickAndMorty::Types::Location',
     required => 0
 );
-
+  
 has 'locations' => (
     is => 'ro',
     isa => 'GrapghQL::Client::RickAndMorty::Types::Locations',
     required => 0
 );
-
+  
 has 'episode' => (
     is => 'ro',
     isa => 'GrapghQL::Client::RickAndMorty::Types::Episode',
     required => 0
 );
-
+  
 has 'episodes' => (
     is => 'ro',
     isa => 'GrapghQL::Client::RickAndMorty::Types::Episodes',
     required => 0
 );
-
+  
 
 no Moose;
 no Moose::Util::TypeConstraints;
 
 1;
-
+  
 
 
 package GrapghQL::Client::RickAndMorty::Operations;
@@ -508,7 +510,6 @@ query GetCharacter(\$id: ID) {
     };
 }
 
-
 sub GetCharacters {
     my ($self, $page, $filter) = @_;
     
@@ -531,12 +532,11 @@ filter => $filter->can('as_hash') ? $filter->as_hash : $filter },
     };
 }
 
-
 no Moose::Util::TypeConstraints;
 no Moose;
 
 1;
-
+  
 
 package GrapghQL::Client::RickAndMorty::Client;
 
